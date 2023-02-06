@@ -102,7 +102,7 @@ locals {
     machine_type       = var.linux_machine_type
     disk_type          = "pd-ssd"
     disk_size_gb       = 30
-    image_type         = "COS"
+    image_type         = "COS_CONTAINERD"
     preemptible        = var.preemptible_nodes ? true : false
     enable_secure_boot = true
   }]
@@ -124,7 +124,7 @@ locals {
 // Enable APIs needed in the gke cluster project
 module "enabled_google_apis" {
   source                      = "terraform-google-modules/project-factory/google//modules/project_services"
-  version                     = "~> 11.3.1"
+  version                     = "~> 14.1"
   project_id                  = var.project_id
   disable_services_on_destroy = false
 
@@ -191,7 +191,7 @@ module "enabled_anthos_apis" {
 // Enable APIs needed in the governance project
 module "enabled_governance_apis" {
   source  = "terraform-google-modules/project-factory/google//modules/project_services"
-  version = "~> 11.3.1"
+  version = "~> 14.1"
 
   project_id                  = var.governance_project_id
   disable_services_on_destroy = false
@@ -209,7 +209,7 @@ module "service_accounts" {
     module.enabled_governance_apis,
   ]
   source        = "terraform-google-modules/service-accounts/google"
-  version       = "~> 4.1.0"
+  version       = "~> 4.1.1"
   project_id    = module.enabled_google_apis.project_id
   display_name  = "${each.key} service account"
   names         = [each.key]

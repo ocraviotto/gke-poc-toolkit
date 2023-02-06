@@ -1,36 +1,36 @@
 module "cluster_build" {
-  source                            = "{{.TFModuleRepo}}cluster_build?ref={{.TFModuleBranch}}"
-  project_id                        = var.project_id
-  governance_project_id             = var.governance_project_id
-  regional_clusters                 = var.regional_clusters
-  region                            = var.region
-  zones                             = var.zones
-  shared_vpc                        = var.shared_vpc
-  vpc_name                          = var.vpc_name
-  ip_range_pods_name                = var.ip_range_pods_name
-  vpc_project_id                    = var.vpc_project_id
-  vpc_ip_range_pods_name            = var.vpc_ip_range_pods_name
-  vpc_ip_range_services_name        = var.vpc_ip_range_services_name
-  node_pool                         = var.node_pool
-  release_channel                   = var.release_channel
-  initial_node_count                = var.initial_node_count
-  min_node_count                    = var.min_node_count
-  max_node_count                    = var.max_node_count
-  linux_machine_type                = var.linux_machine_type
-  windows_machine_type              = var.windows_machine_type
-  private_endpoint                  = var.private_endpoint
-  auth_cidr                         = var.auth_cidr
-  config_sync                       = var.config_sync
-  config_sync_repo                  = var.config_sync_repo
-  policy_controller                 = var.policy_controller
-  config_connector                  = var.config_connector
-  windows_nodepool                  = var.windows_nodepool
-  preemptible_nodes                 = var.preemptible_nodes
-  cluster_config                    = var.cluster_config
-  k8s_users                         = var.k8s_users
-  multi_cluster_gateway             = var.multi_cluster_gateway
-  anthos_service_mesh               = var.anthos_service_mesh
-  gke_module_bypass                 = var.gke_module_bypass
+  source                     = "{{.TFModuleRepo}}cluster_build?ref={{.TFModuleBranch}}"
+  project_id                 = var.project_id
+  governance_project_id      = var.governance_project_id
+  regional_clusters          = var.regional_clusters
+  region                     = var.region
+  zones                      = var.zones
+  shared_vpc                 = var.shared_vpc
+  vpc_name                   = var.vpc_name
+  ip_range_pods_name         = var.ip_range_pods_name
+  vpc_project_id             = var.vpc_project_id
+  vpc_ip_range_pods_name     = var.vpc_ip_range_pods_name
+  vpc_ip_range_services_name = var.vpc_ip_range_services_name
+  node_pool                  = var.node_pool
+  release_channel            = var.release_channel
+  initial_node_count         = var.initial_node_count
+  min_node_count             = var.min_node_count
+  max_node_count             = var.max_node_count
+  linux_machine_type         = var.linux_machine_type
+  windows_machine_type       = var.windows_machine_type
+  private_endpoint           = var.private_endpoint
+  auth_cidr                  = var.auth_cidr
+  config_sync                = var.config_sync
+  config_sync_repo           = var.config_sync_repo
+  policy_controller          = var.policy_controller
+  config_connector           = var.config_connector
+  windows_nodepool           = var.windows_nodepool
+  preemptible_nodes          = var.preemptible_nodes
+  cluster_config             = var.cluster_config
+  k8s_users                  = var.k8s_users
+  multi_cluster_gateway      = var.multi_cluster_gateway
+  anthos_service_mesh        = var.anthos_service_mesh
+  gke_module_bypass          = var.gke_module_bypass
 }
 
 variable "project_id" {
@@ -109,7 +109,7 @@ variable "node_pool" {
 }
 
 variable "release_channel" {
-  type = string
+  type    = string
   default = "regular"
 }
 
@@ -209,8 +209,8 @@ variable "anthos_service_mesh" {
   default     = true
 }
 
- variable "gke_module_bypass" {
-  type = bool
+variable "gke_module_bypass" {
+  type        = bool
   description = "Experimental: Setting this to true allows you to use the TF GKE resource directly instead of the GKE module"
-  default = false
- }
+  default     = false
+}

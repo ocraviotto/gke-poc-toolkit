@@ -1,12 +1,12 @@
 module "shared_vpc" {
-  source                            = "{{.TFModuleRepo}}shared_vpc?ref={{.TFModuleBranch}}"
-  project_id                        = var.project_id
-  vpc_project_id                    = var.vpc_project_id
-  region                            = var.region
-  vpc_name                          = var.vpc_name
-  vpc_ip_range_pods_name            = var.vpc_ip_range_pods_name
-  vpc_ip_range_services_name        = var.vpc_ip_range_services_name
-  cluster_config                    = var.cluster_config
+  source                     = "{{.TFModuleRepo}}shared_vpc?ref={{.TFModuleBranch}}"
+  project_id                 = var.project_id
+  vpc_project_id             = var.vpc_project_id
+  region                     = var.region
+  vpc_name                   = var.vpc_name
+  vpc_ip_range_pods_name     = var.vpc_ip_range_pods_name
+  vpc_ip_range_services_name = var.vpc_ip_range_services_name
+  cluster_config             = var.cluster_config
 }
 
 variable "project_id" {
